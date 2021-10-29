@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Table Generator</title>
+</head>
+<style>
+#error{
+    font-style: italic;
+    font-size:20px;
+    margin-left:50px ;
+    color:red;
+}
+#table-name{
+    font-style: italic;
+    font-size:20px;
+    margin-left:50px ;
+    text-decoration: underline;
+}
+</style>
+<body>
+    <script>
+    const iter=()=>{
+        var text="";
+        var number=document.getElementById("number1").value;
+        var range=document.getElementById("range").value;
+        if(number=="" || range==""){
+            document.getElementById('error').innerHTML="Enter a Number and Range";
+            document.getElementById('table-name').innerHTML="No-Table-Generated";
+            setTimeout(function(){
+                document.getElementById('error').innerHTML="";
+            },1000);
+            setTimeout(function(){
+                document.getElementById('table-name').innerHTML="";
+            },1000);
+        }
+        else{
+        document.getElementById('table-name').innerHTML=number+" TABLE"+"</br></br>";
+        for(let i=1;i<=range;i++){
+            document.getElementById('error').innerHTML=(text+=number+" X "+i+" = "+number*i+"</br>");
+
+        }
+    }
+    }
+    </script>
+    <input type="text" id="number1" placeholder="Enter Your number"></br></br>
+    <input type="text" id="range" placeholder="Enter Table range"></br></br>
+    <input type="submit" value="Submit" id="submit" onclick="iter()"></br></br>
+    <div id="table-name"></div>
+    <div id="error"></div>
+</body>
+</html>
